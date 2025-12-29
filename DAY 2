@@ -1,0 +1,106 @@
+Day 02 – Networking Basics for Cybersecurity 🌐   @https://www.instagram.com/manojkoravangi?igsh=YmR3dXVvNGpiYzFl ##https://skillsuprise.com
+2️⃣ Real-World Investigation Context
+
+During a real-world investigation scenario, I observed multiple suspicious login attempts coming from unknown locations. While analyzing the logs, I realized that every login attempt was associated with an IP address. This helped in understanding where the request was coming from and whether it was legitimate or malicious.
+
+This experience highlighted how important networking knowledge is in cybersecurity. Without understanding IP addresses, DNS, ports, and protocols, it becomes difficult to trace attackers or understand how systems communicate over the internet.
+
+3️⃣ What is an IP Address?
+
+An IP address (Internet Protocol address) is a unique numerical identifier assigned to every device connected to a network. It helps devices locate and communicate with each other.
+
+In cybersecurity, IP addresses are extremely important because they help:
+
+Identify the source of login attempts
+
+Track suspicious or malicious activity
+
+Analyze network traffic
+
+Trace attackers during investigations
+
+Without IP addresses, identifying where an attack is coming from would be nearly impossible.
+
+4️⃣ IPv4 vs IPv6
+
+There are two main versions of IP addresses used on the internet:
+
+IPv4 is a 32-bit address format written in decimal form, such as 192.168.1.1. It has a limited number of available addresses, which is why we are running out of IPv4 addresses.
+
+IPv6 is a 128-bit address format designed to solve the limitation of IPv4. It provides a much larger address space and better security features. IPv6 addresses are longer and written in hexadecimal format.
+
+Both IPv4 and IPv6 are used today, but IPv6 is becoming more important as the internet continues to grow.
+
+5️⃣ Public vs Private IP Addresses
+
+IP addresses are classified into public and private IPs.
+
+Public IP addresses are assigned by internet service providers and are accessible over the internet. These are used when devices communicate with external networks.
+
+Private IP addresses are used inside local networks, such as homes or organizations. Common private IP ranges include:
+
+192.168.x.x
+
+10.x.x.x
+
+In cybersecurity investigations, private IPs help identify internal devices, while public IPs help trace external attackers.
+
+6️⃣ Domain Names & Domain Structure
+
+Domain names are human-readable names that represent IP addresses. Instead of remembering numerical IP addresses, we use domain names like www.google.com.
+
+A domain name has a structure:
+
+Top-Level Domain (TLD): .com, .org, .net
+
+Second-Level Domain (SLD): google
+
+Subdomain: www
+
+Understanding domain structure is important in cybersecurity because attackers often use fake or malicious domains to perform phishing and other attacks.
+
+7️⃣ DNS – Why It Is Important
+
+DNS (Domain Name System) converts domain names into IP addresses so that computers can understand them. It works like a phonebook of the internet.
+
+DNS is critical in cybersecurity because:
+
+Every web request depends on DNS
+
+Attackers target DNS using attacks like DNS spoofing and DNS poisoning
+
+DNS logs are useful during investigations to track suspicious domains
+
+If DNS is compromised, users can be redirected to malicious websites without realizing it.
+
+8️⃣ Ports & Protocols
+
+Ports are numerical identifiers that specify which service is running on a system. Protocols define the rules for communication between devices.
+
+Common examples include:
+
+HTTP – Port 80
+
+HTTPS – Port 443
+
+FTP – Port 21
+
+SSH – Port 22
+
+In cybersecurity, scanning ports helps identify exposed services. Open ports can reveal potential vulnerabilities that attackers may exploit.
+
+9️⃣ Why This Knowledge Matters in Cybersecurity
+
+Networking knowledge is the foundation of cybersecurity. Understanding IP addresses, DNS, ports, and protocols helps in:
+
+Tracing attackers
+
+Investigating suspicious login attempts
+
+Identifying services running on a target
+
+Performing reconnaissance in ethical hacking
+
+Understanding how systems communicate over the internet
+
+Without strong networking fundamentals, it is very difficult to become effective in cybersecurity or ethical hacking.
