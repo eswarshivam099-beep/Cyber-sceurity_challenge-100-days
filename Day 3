@@ -1,0 +1,199 @@
+
+⸻
+
+1. What is WHOIS and Why It Matters in OSINT
+
+WHOIS is a publicly accessible protocol and database used to retrieve registration information about domain names and IP addresses.
+
+Why WHOIS is important:
+	•	It answers the question: “Who owns or controls this domain?”
+	•	It provides foundational intelligence before deeper technical analysis
+	•	It helps differentiate between:
+	•	Legitimate businesses
+	•	Newly created scam or phishing websites
+
+In OSINT, WHOIS is often the first step because:
+	•	It requires no interaction with the target
+	•	It is legal, passive, and non-intrusive
+	•	It provides metadata that guides further investigation
+
+⸻
+
+2. Domain Registrar – What It Tells You
+
+What is a Domain Registrar?
+
+A domain registrar is an organization authorized to sell and manage domain names (e.g., .com, .org, .net).
+
+Why registrars matter in investigations:
+	•	Scam websites often use cheap or lenient registrars
+	•	Some registrars have a history of abuse complaints
+	•	Repeated use of the same registrar can indicate organized scam operations
+
+OSINT value:
+	•	Helps identify patterns across multiple fraudulent domains
+	•	Useful for reporting abuse to the registrar
+	•	Can be correlated with known scam campaigns
+
+⸻
+
+3. Hosting Provider & Name Servers – Infrastructure Intelligence
+
+Hosting Provider
+
+The hosting provider is the company that stores the website’s files and serves them to users.
+
+Name Servers (DNS)
+
+Name servers translate domain names into IP addresses.
+
+Why this is critical:
+	•	Many scam networks reuse the same hosting provider
+	•	Shared name servers can link multiple malicious domains
+	•	Bulletproof hosting providers are commonly used by scammers
+
+OSINT insights:
+	•	Infrastructure reuse suggests common ownership
+	•	Helps uncover entire scam ecosystems
+	•	Supports takedown or threat-intel reporting
+
+⸻
+
+4. Domain Creation & Expiry Dates – Timeline Analysis
+
+Creation Date
+
+Shows when the domain was first registered.
+
+Red flags:
+	•	Domain registered days or weeks ago
+	•	Website claims years of experience but domain is new
+
+Expiry Date
+
+Shows how long the domain is registered for.
+
+Scam indicators:
+	•	1-year registrations (cheap and disposable)
+	•	Short-lived domains used for fast fraud
+
+OSINT importance:
+	•	Establishes timeline inconsistencies
+	•	Strengthens fraud attribution
+	•	Helps determine campaign lifespan
+
+⸻
+
+5. Registrant Contact Details – Attribution Clues
+
+What registrant data may include:
+	•	Name
+	•	Organization
+	•	Email address
+	•	Country
+	•	Phone number
+
+Privacy Protection
+
+Most scammers use WHOIS privacy services to hide identity.
+
+Why this still matters:
+	•	Privacy usage itself is a risk indicator
+	•	Sometimes partial data leaks through
+	•	Older WHOIS records may expose real details
+
+OSINT application:
+	•	Compare contact emails across domains
+	•	Identify reused fake names or organizations
+	•	Link domains to known threat actors
+
+⸻
+
+6. WHOIS as a Starting Point (Not the End)
+
+WHOIS does not solve investigations alone, but it:
+	•	Provides direction
+	•	Narrows down next steps
+	•	Saves time by eliminating guesswork
+
+Typical next steps after WHOIS:
+	•	DNS enumeration
+	•	IP address analysis
+	•	SSL certificate inspection
+	•	Website fingerprinting
+	•	Social media & email correlation
+
+WHOIS answers “Where should I look next?”
+
+⸻
+
+7. Identifying Scam Networks Using WHOIS Correlation
+
+By comparing WHOIS data across domains, investigators can:
+
+Link websites using:
+	•	Same registrar
+	•	Same name servers
+	•	Same hosting provider
+	•	Similar registration dates
+	•	Identical privacy services
+
+Result:
+	•	Discovery of multiple fake crypto sites
+	•	Identification of coordinated scam campaigns
+	•	Evidence of professional fraud operations
+
+This is how individual scams are traced back to organized cybercrime groups.
+
+⸻
+
+8. Preserving WHOIS Data as Evidence
+
+Why preservation is critical:
+	•	Scam domains are often:
+	•	Deleted
+	•	Transferred
+	•	Modified
+	•	WHOIS data can change rapidly
+
+Evidence preservation methods:
+	•	Screenshots of WHOIS results
+	•	Exporting WHOIS records
+	•	Using historical WHOIS databases
+	•	Recording timestamps
+
+Legal & investigative value:
+	•	Supports law enforcement complaints
+	•	Used in cybersecurity incident reports
+	•	Helps threat-intelligence sharing
+
+⸻
+
+9. WHOIS in Real-World Cybersecurity & SOC Work
+
+Used by:
+	•	SOC analysts
+	•	Threat intelligence teams
+	•	Fraud investigators
+	•	Law enforcement
+	•	Compliance teams
+
+Practical use cases:
+	•	Phishing investigations
+	•	Crypto fraud detection
+	•	Brand impersonation cases
+	•	Malware hosting analysis
+
+WHOIS is often part of initial triage in incident response.
+
+10. Key Learning Outcome from Day 3
+
+By the end of Day 3, the key understanding is:
+
+WHOIS transforms suspicion into evidence.
+
+You learned how to:
+	•	Avoid assumptions
+	•	Use structured investigation methods
+	•	Identify patterns and infrastructure reuse
+	•	Build defensible, evidence-based conclusions
