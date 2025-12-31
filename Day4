@@ -1,0 +1,108 @@
+On Day 4, I assessed an organization that had heavily invested in securing its main website. Security headers, SSL certificates, firewalls, and monitoring were properly implemented.
+
+At first glance, the company appeared secure.
+
+However, cybersecurity is not about what is visible — it is about what is forgotten.
+
+When I began reconnaissance beyond the main domain, I discovered multiple vulnerable subdomains that were not protected to the same standard.
+
+Understanding Subdomains in Organizations
+
+Organizations use subdomains for:
+
+Development environments
+
+Testing platforms
+
+Admin portals
+
+Legacy systems
+
+Internal tools
+
+Examples include:
+
+admin.company.com
+
+test.company.com
+
+dev.company.com
+
+These environments are often created temporarily and never revisited from a security standpoint.
+
+What is Subdomain Enumeration (In Reality)?
+
+Subdomain enumeration is the process of discovering all subdomains associated with a main domain.
+
+Hackers use it to:
+
+Expand the attack surface
+
+Identify weak entry points
+
+Bypass strong security controls on main websites
+
+Defenders use it to:
+
+Identify unmanaged assets
+
+Reduce blind spots
+
+Secure forgotten systems
+
+Why Subdomains Become the Weakest Link
+
+In the Day 4 scenario, subdomains were:
+
+Running outdated software
+
+Protected with default credentials
+
+Exposed to the internet unintentionally
+
+Missing logging and monitoring
+
+While the main website was secure, these subdomains became ideal entry points.
+
+This reflects a real-world pattern — many breaches do not start at the front door; they start at the back door.
+
+How Attackers Exploit Subdomains
+
+Attackers enumerate subdomains to:
+
+Find admin panels
+
+Discover APIs and internal tools
+
+Access test databases with real data
+
+Gain initial foothold into internal networks
+
+Once inside, attackers can move laterally and escalate privileges, eventually reaching critical systems.
+
+Lessons Learned from Day 4
+
+Asset visibility is critical for security
+
+Security teams must protect every exposed service
+
+Subdomain enumeration is essential in reconnaissance
+
+Forgotten assets often lead to major breaches
+
+Conclusion – Day 4
+
+Day 4 reinforced a key cybersecurity principle:
+You cannot protect what you do not know exists.
+
+Subdomain enumeration helps both attackers and defenders understand the full scope of a system. For defenders, it is a wake-up call to secure every digital asset — not just the main website.
+
+Overall Reflection (Day 3 & Day 4)
+
+Day 3 focused on OSINT and intelligence gathering
+
+Day 4 focused on reconnaissance and attack surface discovery
+
+Both days emphasized thinking like an investigator, not just a hacker
+
+These skills are fundamental for ethical hacking, blue teaming, and cyber forensics
