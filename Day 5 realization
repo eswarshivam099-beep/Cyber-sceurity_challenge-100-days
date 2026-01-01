@@ -1,0 +1,31 @@
+Day 5 realization.
+The Illusion of Website Security
+
+When you visit a website that has an SSL certificate (the "padlock" icon), uses a secure login, and has clean code, it appears secure. However, security is a "stack." Even if the top layer (the website code) is perfect, the bottom layer (the physical or virtual server) might be shared with hundreds of other people. If the underlying operating system or the server software (like Apache or Nginx) is misconfigured, the website's individual security measures become irrelevant.
+Reverse IP Lookup: The Reconnaissance Phase
+
+A Reverse IP Lookup is a technique used by both security researchers and attackers to identify "neighbors."
+
+    Direct Mapping: Usually, DNS connects a name (example.com) to an IP (1.2.3.4).
+
+    Reverse Mapping: By querying the IP address 1.2.3.4 against a database of DNS records, you can see every other domain name that points to that same address.
+
+    The Discovery: This often reveals that a high-security target is sitting on the same hardware as a neglected personal blog, an outdated forum, or a small business site with zero security updates.
+
+The Shared Hosting Vulnerability
+
+In a Shared Hosting environment, multiple users share the same system resources. While modern hosting companies try to "isolate" these users, many legacy or cheap setups allow for Cross-Site Contamination.
+
+    The Entry Point: An attacker identifies the "weakest link" on the server—perhaps a 5-year-old WordPress site with a vulnerable plugin.
+
+    The Breach: They exploit that weak site to gain a "shell" (command-line access) on the server.
+
+    The Lateral Movement: Once inside the server, if the file permissions are not strictly locked down, the attacker can browse the directories of other users. They can read configuration files (like wp-config.php or .env files) that contain database passwords for the "secure" websites on the same server.
+
+The Real-World Attack Scenario
+
+This is a favorite tactic for "Mass Defacement" or "Symlink Attacks."
+
+    Symlinking: An attacker creates a "symbolic link" (a shortcut) from their hacked folder to the root directory of your "secure" website. This allows them to bypass the web-based security and edit your files directly from the server's backend.
+
+    Resource Exhaustion: Even if they don't hack you, a "noisy neighbor" on your server who gets hit by a DDoS attack or runs a malicious script can crash your website because you share the same CPU and RAM.
