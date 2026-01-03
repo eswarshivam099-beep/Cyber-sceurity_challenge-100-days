@@ -1,0 +1,43 @@
+Day 7
+1. The Core Architecture: Virtualization
+
+The foundation of any modern hacking lab is Virtualization. This allows you to run multiple "computers" (Virtual Machines or VMs) on a single piece of physical hardware.
+
+    Hypervisors: You use software like VirtualBox or VMware to create these virtual environments.
+
+    Isolation: The most critical feature is the Host-Only Network. This ensures that any malware or exploits you run stay inside the lab and cannot "leak" onto your home internet or your actual computer.
+
+2. The "Attacker" Machine
+
+This is your primary toolset. Instead of installing hacking tools one by one, professionals use specialized operating systems that come pre-loaded with thousands of utilities.
+
+    Kali Linux: The industry standard, containing tools for password cracking, network sniffing, and web app testing.
+
+    Parrot Security OS: A lighter alternative to Kali, often preferred for its focus on privacy and development.
+
+    Commando VM: A Windows-based distribution for those focusing on attacking Active Directory or Windows environments.
+
+3. The "Victims" (Vulnerable Applications)
+
+To practice, you need targets that are intentionally broken. These fall into two main categories:
+A. Purpose-Built Vulnerable Apps
+
+These are web applications designed with specific flaws (like SQL Injection or Cross-Site Scripting) for educational purposes.
+
+    OWASP Juice Shop: A modern, sophisticated web app that mimics an e-commerce store.
+
+    DVWA (Damn Vulnerable Web App): A classic PHP/MySQL application that allows you to toggle difficulty levels.
+
+B. "Boot-to-Root" Machines
+
+These are entire operating systems packaged as files (usually .ova or .vmdk) that you import into your lab. Your goal is to find a way in and gain "Root" (total administrative) access.
+
+    Metasploitable: A Linux VM created by the Rapid7 team that is intentionally insecure.
+
+4. Why This is "Legal" and "Ethical"
+
+Hacking is defined by authorization. Building a lab ensures you meet the legal requirements of the "Three Pillars of Ethical Hacking":
+Concept	Explanation
+Ownership	You own the hardware and the virtual machines, giving you the right to probe them.
+Consent	Since you are both the attacker and the defender, consent is implicit.
+Safety	By using an isolated network, you guarantee that you aren't accidentally affecting a neighbor's Wi-Fi or a corporate server.
