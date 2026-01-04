@@ -1,0 +1,141 @@
+1. What are submarine cables?
+
+Submarine cables are high-capacity fiber-optic cables laid on the seabed that connect continents and countries.
+They are the physical backbone of the global internet.
+
+Over 95% of international internet traffic (emails, video calls, cloud access, banking transactions) flows through these cables.
+
+Satellites are used mainly for remote areas or backup, not for bulk internet traffic.
+
+Each cable contains:
+
+Fiber-optic strands that transmit data as light pulses
+
+Repeaters/amplifiers placed every 50–100 km to boost signals
+
+Protective layers to survive deep-sea pressure
+
+2. How internet traffic travels under oceans
+
+When you:
+
+Send a WhatsApp message
+
+Open a website hosted in another country
+
+Make a Zoom call
+
+The data:
+
+Travels from your device to a local ISP
+
+Moves through national fiber networks
+
+Enters a submarine cable landing station
+
+Crosses the ocean floor via submarine cables
+
+Reaches another country’s landing station
+
+Continues through terrestrial networks to the destination server
+
+So even “wireless” activities ultimately rely on physical cables.
+
+3. Key realization: The internet is not purely digital
+
+Many people assume cyber space is:
+
+Virtual
+
+Cloud-based
+
+Invisible
+
+But submarine cables show that:
+
+The internet is deeply physical
+
+Digital communication depends on real-world infrastructure
+
+Servers, data centers, landing stations, and cables are all physical assets
+
+This changes how we understand cybersecurity.
+
+4. Cyber attacks are not only software-based
+
+Traditionally, cyber attacks are associated with:
+
+Malware
+
+Phishing
+
+DDoS attacks
+
+Hacking servers
+
+But submarine cables reveal a physical attack surface:
+
+Physical threats include:
+
+Cutting or damaging undersea cables
+
+Sabotaging landing stations
+
+Interfering with cable repair operations
+
+Espionage via cable tapping
+
+A single damaged cable can:
+
+Slow or disconnect entire regions
+
+Disrupt banking systems
+
+Affect stock markets
+
+Interrupt emergency communications
+
+5. Real-world implications
+a) National security
+
+Countries treat submarine cables as strategic assets because:
+
+Military communications depend on them
+
+Intelligence data flows through them
+
+Economic systems rely on them
+
+b) Economic impact
+
+Damage can lead to:
+
+Internet outages
+
+Trade disruption
+
+Financial losses in millions per hour
+
+c) Cybersecurity strategy shift
+
+Security must include:
+
+Physical protection of cable routes
+
+Surveillance of landing stations
+
+International cooperation
+
+Redundancy and backup routes
+
+6. Why this insight is important
+
+This understanding helps you realize that:
+
+Cybersecurity is not just about code
+
+Digital systems are only as strong as their physical foundations
+
+Attacks can be hybrid (physical + digital)
+
+Protecting infrastructure is as important as protecting data
