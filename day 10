@@ -1,0 +1,133 @@
+Proxies: The Middleman
+
+A proxy server acts as a gateway between you and the internet. When you use a proxy, your internet traffic flows through the proxy server on its way to the address you requested. The request then comes back through that same proxy server, which then forwards the data received from the website to you.
+
+    How it works: It masks your IP address by replacing it with its own. However, most standard proxies (like HTTP proxies) do not encrypt your traffic.
+
+    Use Case for Attackers: Attackers often use "Proxy Chains" (routing traffic through multiple proxies) to make tracing their original IP address significantly harder for investigators.
+
+    Use Case for Investigators: Defenders use "Forward Proxies" to filter web traffic and "Reverse Proxies" to protect web servers from direct exposure to the internet.
+
+2. VPNs: The Encrypted Tunnel
+
+A VPN (Virtual Private Network) goes a step further than a proxy. It creates an encrypted "tunnel" between your device and the VPN server.
+
+    How it works: Unlike a proxy, which usually works at the application level (like your browser), a VPN works at the operating system level. It redirects and encrypts all your network traffic.
+
+    Security: Because of the encryption, even if an ISP or a hacker intercepts the data, they cannot read it.
+
+    Use Case for Attackers: Attackers use VPNs to bypass geo-blocking or to hide their point of origin during the initial phases of an attack (reconnaissance).
+
+    Use Case for Investigators: Cyber investigators use VPNs to prevent the "target" (the malicious site or server they are analyzing) from seeing the investigator's true IP or corporate network, which prevents the attacker from "hacking back."
+
+3. Comparing Proxies vs. VPNs
+Feature	Proxy Server	VPN (Virtual Private Network)
+Level	Application Level (Browser/App)	OS Level (Whole Device)
+Encryption	Usually None	High-level (AES-256)
+Privacy	Hides IP only	Hides IP and traffic data
+Speed	Often faster (no encryption overhead)	Slightly slower due to encryption
+Cost	Often free/cheap	Usually subscription-based
+4. The "Cybersecurity Balance"
+
+Understanding these tools is crucial because cybersecurity is often a game of attribution.
+
+    For the Attacker: The goal is to remain anonymous. If they can bounce their signal through a proxy in a country with no extradition laws, they are much harder to catch.
+
+      For the Investigator: The goal is twofold. First, they must stay anonymous so they don't alert a criminal that they are being watched. 
+Second, they must understand "Proxy-Awareness"—learning how to look for clues (like time-zone mismatches or leaked DNS data) that prove a suspect was using a proxy or VPN.
+1. How DNS Works (The "Phonebook" of the Internet)
+
+When you type google.com into your browser, your computer doesn't actually know how to get there. It needs the IP address (like 142.250.190.46). It sends a request to a DNS Server to look up that name.
+
+Normally, your Internet Service Provider (ISP) provides this DNS server. This means your ISP sees every single website you try to visit.
+2. The Leak: When the "Tunnel" Fails
+
+When you use a VPN, all your traffic is supposed to go through an encrypted tunnel. In a perfect setup, your DNS requests should go through that tunnel to the VPN's private DNS server.
+
+A DNS Leak occurs when your operating system bypasses the VPN tunnel and sends the "Where is this website?" request directly to your ISP’s DNS server instead.
+Why does this happen?
+
+    OS Optimization: Windows, for example, sometimes sends DNS requests across all available network paths simultaneously to see which one answers fastest. If your ISP's server answers before the VPN's, the request "leaks."
+
+    IPv6 Conflicts: Many VPNs only protect IPv4 traffic. If a website supports IPv6, your computer might send a DNS request over the unprotected IPv6 protocol.
+
+    Manual Misconfiguration: If you manually set your DNS to 8.8.8.8 (Google) on your router or PC, that setting might override the VPN's internal settings.
+
+3. The Consequence: Identity Exposure
+
+Even if your actual data (the passwords you type, the videos you watch) is encrypted by the VPN, the DNS leak tells the observer exactly which "building" you entered.
+
+    For the Attacker: If an attacker's DNS leaks while they are targeting a server, the victim’s logs will show a DNS request coming from the attacker’s real home/office ISP. The investigator now has a "hot lead" to the attacker's true physical location.
+
+    For the Investigator: If an investigator is researching a dark-web forum and their DNS leaks, the forum owner can see that someone from a specific law enforcement or corporate IP range is "looking" at them. This blows the investigator's cover.
+
+4. How to Test for Leaks
+
+In cybersecurity, we never trust that a VPN is working just because the icon is green. We verify.
+
+    Baseline: Go to a site like dnsleaktest.com or ipleak.net without your VPN. Note the IP and the DNS server (it will likely show your city/ISP).
+
+    The Test: Turn on your VPN and refresh the page.
+
+    The Result:
+
+        Secure: You see the VPN's IP and a DNS server located in the VPN's country.
+
+        Leaking: You see the VPN's IP, but the DNS server still shows your real ISP or your real home country.
+
+5. Protection Strategies
+
+    VPN Kill Switch: Ensures that if the VPN connection drops, all internet traffic is cut immediately so nothing leaks over the "open" web.
+
+    DNS over HTTPS (DoH): Encrypts the DNS requests themselves, making them look like standard web traffic.
+
+    Disabling IPv6: Many professionals disable IPv6 entirely on their machines to prevent "leakage" through that secondary path.
+
+To verify if your identity is leaking, you need to see exactly which DNS server is answering your computer's requests. If you are on a VPN but see your local ISP’s name in these commands, you have a leak.
+1. Windows: The ipconfig and nslookup Method
+
+Windows uses a few different commands to show you which DNS servers are active.
+
+To see your active DNS servers: Open Command Prompt and type:
+DOS
+
+ipconfig /all
+
+Look for the section labeled "DNS Servers." * Without VPN: You will likely see your router's IP (e.g., 192.168.1.1) or your ISP's servers.
+
+    With VPN: You should see unique IP addresses provided by your VPN service.
+
+To test a specific lookup:
+DOS
+
+nslookup google.com
+
+The first two lines of the output will tell you the Server and Address that handled the request. If that address belongs to your ISP while your VPN is on, you are leaking.
+2. Linux: The resolvectl or dig Method
+
+Modern Linux distributions (like Ubuntu or Fedora) use systemd-resolved to manage DNS.
+
+To see your current DNS configuration:
+Bash
+
+resolvectl status
+
+This will show a detailed list for every interface (Ethernet, Wi-Fi, and your VPN tunnel). Look for the "Current DNS Server" line under your active link.
+
+To perform a detailed "dig": The dig command is the "gold standard" for cybersecurity professionals because it provides more technical detail than nslookup.
+Bash
+
+dig google.com
+
+Look at the very bottom of the output for the ";; SERVER:" line. It will show the IP address of the DNS server that provided the answer.
+3. How to Spot a "Silent" Leak
+
+Sometimes your computer will show the VPN's DNS server, but it is still sending a backup request to your ISP. Attackers and investigators use a DNS Leak Test to catch this.
+
+    Go to DNSLeakTest.com.
+
+    Run the "Extended Test."
+
+    The Red Flag: If you are connected to a VPN in London, but the test shows even one server from your actual home city or ISP (e.g., Comcast, AT&T, BT), your OS is "leaking" requests outside the tunnel.
+
+    Key Concept: A common mistake is thinking these tools make you "invincible." In reality, techniques like DNS Leaking or Browser Fingerprinting can often reveal a user's true identity even if a VPN is active.
