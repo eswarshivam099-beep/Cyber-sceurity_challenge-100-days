@@ -1,0 +1,43 @@
+Virtualization (The "Safety Sandbox")
+
+Virtualization uses a software layer (a Hypervisor) to run multiple guest operating systems on top of your host OS. Common tools include VMware, VirtualBox, and Proxmox.
+
+    How it works: The hypervisor mimics hardware. The guest OS "thinks" it has its own CPU, RAM, and disk, but it’s actually just a set of files on your main computer.
+
+    Why it’s used for Malware Analysis: * Snapshots: This is the "save game" feature. You can take a snapshot of a clean system, infect it with malware, observe the damage, and then revert to the clean state in seconds.
+
+        Network Isolation: You can create "Host-Only" networks so the malware can't "phone home" or spread to your actual home Wi-Fi.
+
+2. Live Boot (The "Ghost" Setup)
+
+A Live Boot involves running an entire operating system from a removable medium, like a USB drive or CD, without installing it on the hard drive.
+
+    How it works: The OS loads directly into the system's RAM. Because RAM is volatile, any changes made or files created usually disappear the moment you pull the plug or reboot (unless you specifically configure "persistence").
+
+    Why it’s used for Forensics:
+
+        Non-Interference: In forensics, the golden rule is "do not alter the evidence." By live-booting a tool like Kali Linux or Caine, you can examine a suspect's hard drive without mounting it or changing any metadata.
+
+        Portability: You can carry your entire toolkit on a keychain and use it on any hardware.
+
+3. Dual Boot (The "High-Performance" Setup)
+
+Dual booting is the practice of installing two or more operating systems on separate partitions of the same hard drive. When you turn on the computer, a bootloader (like GRUB) asks which one you want to load.
+
+    How it works: Unlike virtualization, the OS has direct access to the hardware (GPU, CPU, RAM). There is no "middleman" software slowing things down.
+
+    Why it’s used for Exploit Testing:
+
+        Hardware Compatibility: Some exploits (like those targeting Wi-Fi cards or specific GPU drivers) don't work well in virtual machines because the hypervisor "masks" the real hardware.
+
+        Resource Intensive Tasks: If you are cracking passwords using Hashcat, you need the full power of your GPU, which requires a native (dual-boot) installation.
+
+Comparative Features
+Feature	Virtualization	Live Boot	Dual Boot
+Setup Risk	Very Low	Low	High (Risk of wiping drive)
+Performance	Moderate	Moderate (limited by USB speed)	Native (Fastest)
+Isolation	High (Virtual sandbox)	Very High (Doesn't touch HDD)	Low (Can access other partitions)
+Best For	Malware Analysis	Forensics & Privacy	Hardware-level Hacking
+A Word of Caution: "VM Escapes"
+
+While virtualization is safe, advanced malware is sometimes designed to detect it is in a VM. Some can even perform a VM Escape, where the malware exploits a bug in the hypervisor to "jump" from the guest OS and infect your actual host computer. This is why professional labs often use dedicated, air-gapped hardware
