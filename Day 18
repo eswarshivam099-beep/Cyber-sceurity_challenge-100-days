@@ -1,0 +1,166 @@
+1️⃣ What Is Burp Suite?
+
+Burp Suite is an intercepting proxy used by:
+
+Ethical hackers
+
+Penetration testers
+
+Security teams
+
+Malicious attackers
+
+It sits between the browser and the server, allowing full visibility and control over HTTP/HTTPS traffic.
+
+2️⃣ How Request Interception Works
+Normal Flow (No Proxy)
+Browser → Server → Response
+
+With Burp Suite
+Browser → Burp Suite → Server → Burp Suite → Browser
+
+
+This allows attackers to:
+
+See every request
+
+Pause requests
+
+Modify parameters
+
+Replay or resend them
+
+3️⃣ Intercepting HTTP Requests
+What You Learned
+
+Using Burp’s Intercept feature, attackers can:
+
+Capture login requests
+
+View headers, cookies, tokens
+
+Inspect request bodies (JSON, form data)
+
+Example
+POST /login
+username=user1
+password=Welcome@123
+
+
+Even if the UI hides fields, Burp reveals everything sent to the server.
+
+4️⃣ Modifying Requests (Tampering)
+
+Attackers can change request data before it reaches the server.
+
+Common Modifications
+
+Change user roles (role=user → role=admin)
+
+Modify prices (price=100 → price=1)
+
+Change user IDs (userId=101 → userId=102)
+
+Remove client-side validations
+
+Key Learning
+
+Client-side controls can never be trusted.
+Only server-side validation matters.
+
+5️⃣ Replaying Requests (Replay Attacks)
+
+Using tools like Repeater or Intruder, attackers can:
+
+Resend requests multiple times
+
+Automate attacks
+
+Test different payloads
+
+Example Scenarios
+
+Replaying a payment request → double charge
+
+Reusing password reset tokens
+
+Testing IDOR vulnerabilities
+
+6️⃣ Why This Is Extremely Dangerous
+
+Because:
+
+Applications often trust incoming requests
+
+Developers assume users follow UI rules
+
+APIs expose more data than the frontend shows
+
+This leads to:
+
+Broken Access Control
+
+Injection attacks
+
+Business logic abuse
+
+Account takeover
+
+7️⃣ OWASP Top 10 Mapping (Very Important)
+
+Day 18 directly maps to:
+
+Broken Access Control
+
+Injection
+
+Identification & Authentication Failures
+
+Insecure Design
+
+Security Misconfiguration
+
+Burp Suite is often the primary tool used to exploit OWASP Top 10 vulnerabilities.
+
+8️⃣ Key Security Lessons from Day 18
+🔒 Never Trust the Client
+
+UI validation ≠ Security
+
+JavaScript checks can be bypassed
+
+🛡️ Enforce Server-Side Controls
+
+Authorization checks on every request
+
+Validate tokens, roles, ownership
+
+🔍 Secure APIs
+
+Validate input strictly
+
+Implement rate limiting
+
+Protect against replay attacks
+
+🧪 Test Like an Attacker
+
+Intercept requests
+
+Modify parameters
+
+Attempt unauthorized actions
+
+9️⃣ Learning Outcome (Day 18 Takeaway)
+
+If an attacker can intercept and modify requests, they can control your application unless strong server-side security exists.
+
+You clearly learned:
+
+How attackers think
+
+How HTTP manipulation works
+
+Why API security is critical
+
+Why frontend security alone is useless
