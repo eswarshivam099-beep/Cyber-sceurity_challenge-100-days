@@ -1,0 +1,155 @@
+1️⃣ What Is a Brute-Force Attack?
+
+A brute-force attack is an automated attempt to gain unauthorized access by systematically trying:
+
+Large numbers of passwords
+
+Common password lists (dictionary attacks)
+
+Username–password combinations leaked from previous breaches
+
+Attackers use tools and scripts to make thousands of login attempts per minute.
+
+2️⃣ Why Weak Passwords Are Dangerous
+Characteristics of Weak Passwords
+
+Short length (e.g., 123456, admin123)
+
+Common words or patterns
+
+Reused across multiple websites
+
+No complexity (no symbols, uppercase, numbers)
+
+Real-World Reality
+
+Most users:
+
+Reuse passwords
+
+Choose predictable patterns
+
+Ignore password hygiene
+
+This makes brute-force and credential-stuffing attacks highly effective.
+
+3️⃣ Role of Missing Rate Limiting
+What Is Rate Limiting?
+
+Rate limiting restricts:
+
+Number of login attempts per IP
+
+Number of attempts per account
+
+Speed of requests over time
+
+What Happens Without It?
+
+Unlimited login attempts
+
+Attack scripts can try millions of combinations
+
+No alerts or blocking
+
+Example Scenario
+Login attempts allowed: Unlimited
+Result: Password cracked in minutes
+
+
+Without rate limiting, the system unintentionally helps the attacker.
+
+4️⃣ What You Observed During Simulation
+
+During your simulation, you likely noticed:
+
+✔ Login attempts were not blocked
+✔ No CAPTCHA after multiple failures
+✔ No account lockout
+✔ No alerting or logging
+✔ Eventually, correct credentials succeeded
+
+This demonstrates how defensive controls matter more than just encryption.
+
+5️⃣ Real-World Impact of Brute-Force Attacks
+Consequences
+
+Account takeover (email, banking, CRM)
+
+Data theft (PII, financial data)
+
+Privilege escalation
+
+Reputation damage
+
+Compliance violations
+
+Famous Attack Types
+
+Brute-force
+
+Dictionary attack
+
+Credential stuffing
+
+Most breaches today start with stolen or guessed credentials.
+
+6️⃣ Why This Is a Critical OWASP Risk
+
+This topic directly maps to:
+
+Identification and Authentication Failures
+
+Broken Access Control
+
+It remains one of the top causes of real-world breaches because:
+
+It’s easy to automate
+
+Users choose weak passwords
+
+Applications forget rate-limiting
+
+7️⃣ Key Security Controls You Learned Are Necessary
+🔒 Strong Password Policies
+
+Minimum length (12+ characters)
+
+Complexity rules
+
+Block common passwords
+
+⏱️ Rate Limiting
+
+Limit attempts per IP
+
+Limit attempts per account
+
+Progressive delays
+
+🔐 Account Lockout
+
+Temporary lock after failures
+
+Admin/user notification
+
+🧠 CAPTCHA
+
+Trigger after suspicious behavior
+
+🔑 Multi-Factor Authentication (MFA)
+
+Stops brute-force even if password is cracked
+
+8️⃣ Learning Outcome (Day 17 Takeaway)
+
+Passwords alone are not enough.
+Security depends on controls around authentication, not just credentials.
+
+By simulating brute-force attacks, you clearly understood:
+
+How attackers think
+
+Why weak passwords fail
+
+Why rate limiting is mandatory, not optional
