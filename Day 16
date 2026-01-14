@@ -1,0 +1,273 @@
+ Broken Access Control
+What it is
+
+When users can access data or perform actions they are not authorized for.
+
+Common Examples
+
+A normal user accessing admin URLs
+
+Changing user IDs in URLs (/user/123 → /user/124)
+
+Missing role-based checks on APIs
+
+Real-World Impact
+
+Account takeover
+
+Data exposure (PII, financial data)
+
+Privilege escalation
+
+Example
+GET /api/orders?userId=1002
+
+
+If the system does not verify ownership, attackers can change userId.
+
+Prevention
+
+Enforce server-side authorization
+
+Use deny-by-default access rules
+
+Validate permissions on every request
+
+2️⃣ Cryptographic Failures (Previously Sensitive Data Exposure)
+What it is
+
+Failure to properly encrypt sensitive data at rest or in transit.
+
+Common Examples
+
+Storing passwords in plain text
+
+Using weak encryption (MD5, SHA-1)
+
+Missing HTTPS (TLS)
+
+Real-World Impact
+
+Credential theft
+
+Financial fraud
+
+Regulatory penalties (GDPR, HIPAA)
+
+Prevention
+
+Use strong encryption (AES-256, bcrypt)
+
+Enforce HTTPS everywhere
+
+Never store passwords in plain text
+
+3️⃣ Injection (SQL, NoSQL, OS, LDAP)
+What it is
+
+When untrusted input is sent directly to an interpreter.
+
+Common Examples
+
+SQL Injection
+
+SOQL Injection (Salesforce context)
+
+Command Injection
+
+Example
+SELECT * FROM users WHERE username = 'admin' --'
+
+Real-World Impact
+
+Full database compromise
+
+Data deletion
+
+Unauthorized access
+
+Prevention
+
+Use prepared statements
+
+Validate & sanitize inputs
+
+Avoid dynamic queries
+
+4️⃣ Insecure Design
+What it is
+
+Flaws in application architecture or logic, not coding mistakes.
+
+Common Examples
+
+No rate-limiting for login attempts
+
+Trusting client-side validations
+
+No threat modeling
+
+Why It’s Dangerous
+
+Even perfectly written code can be insecure if design is weak.
+
+Prevention
+
+Threat modeling
+
+Secure design patterns
+
+Abuse-case analysis
+
+5️⃣ Security Misconfiguration
+What it is
+
+Using insecure default configurations.
+
+Common Examples
+
+Default admin credentials
+
+Open S3 buckets
+
+Detailed error messages shown to users
+
+Real-World Impact
+
+Attackers gain easy entry
+
+Infrastructure takeover
+
+Prevention
+
+Harden configurations
+
+Disable unnecessary services
+
+Regular security audits
+
+6️⃣ Vulnerable and Outdated Components
+What it is
+
+Using libraries or frameworks with known vulnerabilities.
+
+Examples
+
+Old Log4j versions
+
+Outdated Spring or Apache libraries
+
+Real-World Impact
+
+Remote code execution
+
+Massive breaches (e.g., Log4Shell)
+
+Prevention
+
+Dependency scanning
+
+Regular patching
+
+Remove unused components
+
+7️⃣ Identification and Authentication Failures
+What it is
+
+Weak login and identity management mechanisms.
+
+Common Examples
+
+No account lockout
+
+Weak passwords
+
+Session IDs in URLs
+
+Real-World Impact
+
+Credential stuffing attacks
+
+Account takeover
+
+Prevention
+
+Multi-Factor Authentication (MFA)
+
+Strong password policies
+
+Secure session handling
+
+8️⃣ Software and Data Integrity Failures
+What it is
+
+Trusting software updates or data without verification.
+
+Examples
+
+Unverified CI/CD pipelines
+
+Unsigned software updates
+
+Insecure deserialization
+
+Real-World Impact
+
+Supply chain attacks
+
+Malware injection
+
+Prevention
+
+Code signing
+
+Secure CI/CD pipelines
+
+Integrity checks
+
+9️⃣ Security Logging and Monitoring Failures
+What it is
+
+Failure to detect and respond to attacks.
+
+Common Issues
+
+No audit logs
+
+Logs not monitored
+
+Alerts not configured
+
+Why It’s Critical
+
+Breaches go undetected for months.
+
+Prevention
+
+Centralized logging
+
+Real-time alerts
+
+Incident response plans
+
+🔟 Server-Side Request Forgery (SSRF)
+What it is
+
+Attackers trick servers into making malicious internal requests.
+
+Example
+https://example.com/fetch?url=http://localhost/admin
+
+Real-World Impact
+
+Access to internal services
+
+Cloud metadata theft
+
+Prevention
+
+Validate URLs
+
+Block internal IP access
+
+Use allow-lists
