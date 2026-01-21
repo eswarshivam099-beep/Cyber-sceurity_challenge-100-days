@@ -1,0 +1,13 @@
+Day 22: Directory Brute-Forcing – Finding the Unseen
+
+This day focuses on reconnaissance. Just because a link isn't on the homepage doesn't mean the page isn't public.
+
+    The Wordlist Strategy: Tools like Gobuster or Dirb take a list of common names (e.g., admin, dev, test, config, .env) and try them against the URL: website.com/admin, website.com/dev, etc.
+
+    What is discovered?
+
+        Sensitive Files: .env files (containing API keys), .git folders (containing source code), or backup.sql files.
+
+        Hidden Panels: Development staging areas or login pages for site administrators that were meant to be "private."
+
+    Key Lesson: Security by Obscurity (hoping no one finds the folder) is a failed strategy. If a folder shouldn't be public, it must be protected by authentication or server-level permissions.
