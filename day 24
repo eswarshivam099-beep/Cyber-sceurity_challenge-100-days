@@ -1,0 +1,21 @@
+Day 24: File Upload Vulnerabilities
+
+File upload functionality is a common feature (profile pictures, resumes, document sharing), but if not secured, it is one of the most dangerous entry points for an attacker because it allows them to place their own code directly onto the target server.
+
+    The Mechanism of Attack:
+
+        Bypassing Extensions: An attacker tries to upload a file named shell.php instead of image.jpg. If the server only checks the file extension on the client-side (JavaScript), the attacker can intercept the request and change it back to .php.
+
+        Content-Type Sniffing: Attackers may disguise a script as an image by changing the "MIME type" header to image/jpeg, even though the file contains malicious code.
+
+        Web Shells: Once a script (like a PHP shell) is uploaded and saved in a web-accessible folder, the attacker visits the URL (e.g., website.com/uploads/shell.php). This gives them a command-line interface to the server, allowing them to steal data or delete the entire site.
+
+    The Impact: This often leads to Remote Code Execution (RCE), the "holy grail" for hackers, effectively giving them full control over the web server.
+
+    The Fix:
+
+        Rename files upon upload so the attacker doesn't know the path.
+
+        Validate file content (Magic Bytes) rather than just the extension.
+
+        Store uploads on a separate dedicated server or an isolated directory where execution permissions are disabled.
