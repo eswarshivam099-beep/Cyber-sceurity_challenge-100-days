@@ -1,0 +1,9 @@
+Day 21: WPScan – The WordPress Specialist
+
+Because WordPress is the world’s most popular CMS, it has a massive "attack surface." WPScan is a black-box scanner that mimics how a real hacker probes a WordPress site.
+
+    Vulnerability Database: It syncs with a massive database of over 21,000+ known vulnerabilities in WordPress core, plugins, and themes.
+
+    User Enumeration: It uses techniques like scanning author archives (e.g., /?author=1) to find valid usernames. Once an attacker has the usernames, they only need to guess the passwords.
+
+    Hidden Danger: Most vulnerabilities are found in third-party plugins. WPScan identifies these "weak links" that owners often forget to update.
