@@ -1,0 +1,13 @@
+Day 23: OWASP ZAP – The Full-Spectrum Scanner
+
+The Zed Attack Proxy (ZAP) is the "Swiss Army Knife" for web security. It’s an Integrated Penetration Testing tool.
+
+    Spidering/Crawling: ZAP starts by "walking" through the site, following every link and mapping every hidden corner to create a visual tree of the application.
+
+    The Proxy Advantage: Because it sits between the browser and the server, it can modify requests in real-time. You can change a "Price: $100" field to "Price: $1" before the server receives it to test for logic flaws.
+
+    Active vs. Passive Scanning:
+
+        Passive: It watches traffic for easy-to-spot errors like missing security headers or insecure cookies.
+
+        Active: It sends "hostile" payloads (XSS scripts, SQL injections) to see which ones trigger a vulnerability.
