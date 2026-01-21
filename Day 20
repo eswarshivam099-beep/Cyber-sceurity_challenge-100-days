@@ -1,0 +1,15 @@
+Day 20: SQLMap – Weapons-Grade Automation
+
+SQLMap is a "detect and destroy" tool. It takes the manual, tedious process of Day 19 and automates it with incredible precision.
+
+    Fingerprinting: SQLMap first "fingerprints" the target to identify the specific database (MySQL, PostgreSQL, Oracle, etc.).
+
+    Technique Rotation: It automatically tries all six injection techniques (Boolean-blind, Time-blind, Error-based, UNION-based, Stacked queries, and Out-of-band) until one works.
+
+    The "Takeover": Once a hole is found, an attacker can use commands like:
+
+        --dbs: List all databases.
+
+        --dump: Download every single record from a table.
+
+        --os-shell: If permissions allow, it can drop a "shell" to take over the entire operating system of the server.
