@@ -1,0 +1,21 @@
+Day 25: CSRF (Cross-Site Request Forgery)
+
+CSRF is an attack that tricks a victim into submitting a malicious request. It inherits the identity and privileges of the victim to perform an undesired action on their behalf.
+
+    How it Works:
+
+        The Scenario: You are logged into your bank account. In another tab, you visit a malicious website.
+
+        The Forgery: The malicious site contains a hidden script or a button that sends a request to your bank: bank.com/transfer?amount=1000&to=attacker.
+
+        The Trust: Because your browser already has an active "session cookie" for the bank, the bank’s server thinks you made the request and processes the transfer.
+
+    Key Requirement: The victim must be authenticated (logged in) to the target service at the time of the attack.
+
+    The Impact: Attackers can change passwords, update email addresses, transfer funds, or post messages on social media without the user ever knowing.
+
+    The Fix:
+
+        Anti-CSRF Tokens: The server issues a unique, secret, and unpredictable token for every session. The bank will only process a transfer if that specific token is included in the request.
+
+        SameSite Cookie Attribute: Setting cookies to SameSite=Strict prevents the browser from sending cookies along with cross-site requests.
